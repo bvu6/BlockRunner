@@ -19,7 +19,13 @@ public class Obstacle : MonoBehaviour
             playerMovement.Die(); 
         }
     }
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Finish"))
+        {
+            Debug.Log("You win!");
+        }
+    }
     // Update is called once per frame
     void Update()
     {
