@@ -13,6 +13,8 @@ public class CoinController : MonoBehaviour
         {
             return; 
         }
+
+        GameManager.inst.IncrementScore(); 
         Destroy(gameObject);
     }
 
