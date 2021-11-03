@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI; 
 public class Timer : MonoBehaviour
 {
-    public float timeValue = 90;
+    public float timeValue = 20;
 
     public Text timerText; 
     // Start is called before the first frame update
@@ -23,6 +23,7 @@ public class Timer : MonoBehaviour
         }
         else
         {
+            Debug.Log("time is out!");
             timeValue = 0; 
         }
         DisplayTime(timeValue);
