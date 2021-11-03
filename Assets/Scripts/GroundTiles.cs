@@ -26,17 +26,17 @@ public class GroundTiles : MonoBehaviour
     void SpawnObstacle()
     {   //random location for obstacles
         quadrants[0] = new Vector3(Random.Range(33, 70), 0.6f, Random.Range(-790, 330));
-        quadrants[1] = new Vector3(Random.Range(33, 70), 0.6f, Random.Range(0, 330));
-        quadrants[2] = new Vector3(Random.Range(33, 70), 0.6f, Random.Range(-790, -500));
-        quadrants[3] = new Vector3(Random.Range(33, 70), 0.6f, Random.Range(-500, 0));
+        quadrants[1] = new Vector3(Random.Range(33, 70), 0.6f, Random.Range(50, 330));
+        quadrants[2] = new Vector3(Random.Range(33, 70), 0.6f, Random.Range(-230, 50));
+        quadrants[3] = new Vector3(Random.Range(33, 70), 0.6f, Random.Range(-790, -230));
     }
 
     private void SpawnCoin()
     {
         quadrants[0] = new Vector3(Random.Range(36, 70), 1.7f, Random.Range(-790, 330));
-        quadrants[1] = new Vector3(Random.Range(36, 70), 1.7f, Random.Range(0, 330));
-        quadrants[2] = new Vector3(Random.Range(36, 70), 1.7f, Random.Range(-790, -500));
-        quadrants[3] = new Vector3(Random.Range(36, 70), 1.7f, Random.Range(-500, 0));
+        quadrants[1] = new Vector3(Random.Range(36, 70), 1.7f, Random.Range(50, 330));
+        quadrants[2] = new Vector3(Random.Range(36, 70), 1.7f, Random.Range(-230, 50));
+        quadrants[3] = new Vector3(Random.Range(36, 70), 1.7f, Random.Range(-790, -230));
     }
 
     private void CreateAud()
@@ -44,13 +44,13 @@ public class GroundTiles : MonoBehaviour
         SpawnObstacle();
         SpawnCoin();
 
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 40; i++)
         {
             SpawnObstacle();
             Instantiate(obstacle, quadrants[i%3], obstacle.transform.rotation); 
         }
         
-        for (int i = 0; i < 30; i++)
+        for (int i = 0; i < 50; i++)
         {
             SpawnCoin();
             Instantiate(coin, quadrants[i%3], coin.transform.rotation);
