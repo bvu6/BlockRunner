@@ -23,10 +23,10 @@ public class GroundTiles : MonoBehaviour
 
     void SpawnObstacle()
     {   //random location for obstacles
-        quadrants[0] = new Vector3(Random.Range(-10, 20), 0.6f, Random.Range(-386, -24));
-        quadrants[1] = new Vector3(Random.Range(-10, 20), 0.6f, Random.Range(-386, -24));
-        quadrants[2] = new Vector3(Random.Range(-10, 20), 0.6f, Random.Range(-386, -24));
-        quadrants[3] = new Vector3(Random.Range(-10, 20), 0.6f, Random.Range(-386, -24));
+        quadrants[0] = new Vector3(Random.Range(36, 70), 0.6f, Random.Range(36, 330));
+        quadrants[1] = new Vector3(Random.Range(36, 70), 0.6f, Random.Range(36, 330));
+        quadrants[2] = new Vector3(Random.Range(36, 70), 0.6f, Random.Range(36, 330));
+        quadrants[3] = new Vector3(Random.Range(36, 70), 0.6f, Random.Range(36, 330));
         Instantiate(obstacle, quadrants[0], obstacle.transform.rotation);
         Instantiate(obstacle, quadrants[1], obstacle.transform.rotation);
         Instantiate(obstacle, quadrants[2], obstacle.transform.rotation);
