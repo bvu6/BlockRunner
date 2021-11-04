@@ -42,6 +42,14 @@ public class PlayerMovement : MonoBehaviour
         alive = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Finish"))
+        {
+            speed = 0; 
+            Debug.Log("You win!");
+        }
+    }
 
     
 }
