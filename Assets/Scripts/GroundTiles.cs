@@ -44,7 +44,7 @@ public class GroundTiles : MonoBehaviour
         SpawnObstacle();
         SpawnCoin();
 
-        for (int i = 0; i < 40; i++)
+        for (int i = 0; i < 50; i++)
         {
             SpawnObstacle();
             Instantiate(obstacle, quadrants[i%3], obstacle.transform.rotation); 

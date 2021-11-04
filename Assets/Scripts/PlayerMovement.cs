@@ -15,7 +15,13 @@ public class PlayerMovement : MonoBehaviour
 
     public float horizMult = 2;
 
-    private bool alive = true; 
+    private bool alive = true;
+
+    public float speedIncrease = 0.1f;
+
+    [SerializeField] private float jumpForce = 400f;
+    [SerializeField] LayerMask GroundMask; 
+    
     // Start is called before the first frame update
     private void FixedUpdate()
     {
@@ -29,12 +35,23 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         horizInput = Input.GetAxis("Horizontal");
-
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Jump();
+        }
         if (transform.position.y < -5) //if hero goes off plane
         {
             Die();
         }
 
+    }
+
+    void Jump()
+    {
+        float height = GetComponent<Collider>().bounds.size.y;//get ground
+        bool isGrounded = Physics.Raycast(transform.position, Vector3.down, (height / 2)+0.1f, GroundMask); 
+        
+        rb.AddForce(Vector3.up * jumpForce);
     }
 
     public void Die()
@@ -50,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("You win!");
         }
     }
+    
 
     
 }
