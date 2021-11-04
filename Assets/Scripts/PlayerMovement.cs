@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI; 
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -18,11 +19,17 @@ public class PlayerMovement : MonoBehaviour
     private bool alive = true;
 
     public float speedIncrease = 0.1f;
+    [SerializeField] private GameObject winImage;
 
     [SerializeField] private float jumpForce = 400f;
-    [SerializeField] LayerMask GroundMask; 
+    [SerializeField] LayerMask GroundMask;
+     
     
     // Start is called before the first frame update
+    void Start()
+    {
+        winImage.SetActive(false);
+    }
     private void FixedUpdate()
     {
         if (!alive) return; 
@@ -63,7 +70,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Finish"))
         {
-            speed = 0; 
+            speed = 0;
+            winImage.SetActive(true);
             Debug.Log("You win!");
         }
     }
