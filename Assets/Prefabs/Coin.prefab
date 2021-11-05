@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnSpeed: 90
+  coin: {fileID: -4526122270093704966}
 --- !u!54 &2293790356188390492
 Rigidbody:
   m_ObjectHideFlags: 0

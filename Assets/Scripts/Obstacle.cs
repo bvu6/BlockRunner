@@ -6,6 +6,8 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
     PlayerMovement playerMovement;
+
+    [SerializeField] AudioSource death; 
     // Start is called before the first frame update
     private void Start()
     {
@@ -16,6 +18,7 @@ public class Obstacle : MonoBehaviour
     {
         if (collision.gameObject.name == "Hero")
         {
+            death.Play();
             playerMovement.Die(); 
         }
     }

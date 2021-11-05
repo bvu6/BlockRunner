@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class CoinController : MonoBehaviour
 {
-    public float turnSpeed = 90f; 
+    public float turnSpeed = 90f;
+
+    
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
@@ -14,9 +16,12 @@ public class CoinController : MonoBehaviour
             return; 
         }
         GameManager.inst.IncrementScore();
+        GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<CapsuleCollider>().enabled = false;
         AudioSource audio = GetComponent<AudioSource>();
         audio.PlayOneShot(audio.clip);
-        Destroy(gameObject, audio.clip.length); 
+        Destroy(gameObject, audio.clip.length);
+        
     }
 
     void Start()
