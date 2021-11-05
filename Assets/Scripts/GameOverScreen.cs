@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI; 
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class GameOverScreen : MonoBehaviour
 {
-    public GameManager score; 
-    public Text scoreText;
-    // Start is called before the first frame update
-    public void Setup()
+    public Text overText;
+
+    public void Setup(int score)
     {
-        gameObject.SetActive(true);
-        scoreText.text = "Score: " + score;
+        overText.text = "Score: " + score.ToString(); 
     }
     public void PlayGame()
     {
@@ -23,4 +22,5 @@ public class GameOverScreen : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
 }

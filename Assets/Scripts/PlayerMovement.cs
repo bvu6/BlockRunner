@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
     public void Die()
     {
         alive = false;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("MainScene");
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -72,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
         {
             speed = 0;
             winImage.SetActive(true);
+            
             Debug.Log("You win!");
         }
     }

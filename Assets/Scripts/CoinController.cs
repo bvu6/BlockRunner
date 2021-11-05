@@ -13,9 +13,10 @@ public class CoinController : MonoBehaviour
         {
             return; 
         }
-
-        GameManager.inst.IncrementScore(); 
-        Destroy(gameObject);
+        GameManager.inst.IncrementScore();
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.PlayOneShot(audio.clip);
+        Destroy(gameObject, audio.clip.length); 
     }
 
     void Start()
