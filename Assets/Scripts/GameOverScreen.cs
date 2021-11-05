@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI; 
 using UnityEngine.SceneManagement;
@@ -8,10 +9,12 @@ using UnityEngine.SocialPlatforms.Impl;
 public class GameOverScreen : MonoBehaviour
 {
     public Text overText;
-
-    public void Setup(int score)
+    [SerializeField] private TextMeshProUGUI scoreText;
+    private GameManager game;
+    public void Setup()
     {
-        overText.text = "Score: " + score.ToString(); 
+        int score = game.getScore(); 
+        overText.text = "Score: " + score; 
     }
     public void PlayGame()
     {
@@ -22,5 +25,7 @@ public class GameOverScreen : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+  
 
 }

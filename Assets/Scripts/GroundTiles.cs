@@ -25,10 +25,10 @@ public class GroundTiles : MonoBehaviour
 
     void SpawnObstacle()
     {   //random location for obstacles
-        quadrants[0] = new Vector3(Random.Range(33, 70), 0.6f, Random.Range(-790, 330));
+        quadrants[0] = new Vector3(Random.Range(33, 70), 0.6f, Random.Range(-790, -230));
         quadrants[1] = new Vector3(Random.Range(33, 70), 0.6f, Random.Range(50, 330));
         quadrants[2] = new Vector3(Random.Range(33, 70), 0.6f, Random.Range(-230, 50));
-        quadrants[3] = new Vector3(Random.Range(33, 70), 0.6f, Random.Range(-790, -230));
+        quadrants[3] = new Vector3(Random.Range(33, 70), 0.6f, Random.Range(-790, -500));
     }
 
     private void SpawnCoin()

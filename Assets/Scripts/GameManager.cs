@@ -27,6 +27,11 @@ public class GameManager : MonoBehaviour
         inst = this; 
     }
 
+    public int getScore()
+    {
+        return score; 
+    } 
+
     void Start()
     {
         

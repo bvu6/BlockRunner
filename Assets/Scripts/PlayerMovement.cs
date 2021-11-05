@@ -22,12 +22,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject winImage;
 
     [SerializeField] private float jumpForce = 400f;
-    [SerializeField] LayerMask GroundMask;
+    [SerializeField] private TextMeshProUGUI scoreText;
+    private GameManager game;
+    
      
     
     // Start is called before the first frame update
     void Start()
     {
+        GameObject gameObj = GameObject.FindGameObjectWithTag("GameController");
+        game = gameObj.GetComponent<GameManager>(); 
+        Debug.Log("test");
         winImage.SetActive(false);
     }
     private void FixedUpdate()
@@ -56,7 +61,6 @@ public class PlayerMovement : MonoBehaviour
     void Jump()
     {
         float height = GetComponent<Collider>().bounds.size.y;//get ground
-        bool isGrounded = Physics.Raycast(transform.position, Vector3.down, (height / 2)+0.1f, GroundMask); 
         
         rb.AddForce(Vector3.up * jumpForce);
     }
@@ -71,6 +75,8 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Finish"))
         {
             speed = 0;
+            int score = game.getScore(); 
+            scoreText.text = "Score: " + score;
             winImage.SetActive(true);
             
             Debug.Log("You win!");
